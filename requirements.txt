@@ -1,0 +1,5 @@
+numpy
+graphlearning
+scikit-image
+annoy
+matplotlib
