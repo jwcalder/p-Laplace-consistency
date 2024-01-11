@@ -12,14 +12,15 @@ def trial(G,labels,train_ind,p):
         L = (u > 0.5).astype(int)
     return gl.ssl.ssl_accuracy(L, labels, train_ind)
 
-dataset = 'mnist' 
-#dataset = 'cifar10' 
-classes = (4,9)
+#dataset = 'mnist' 
+dataset = 'cifar10' 
 
 if dataset == 'mnist':
     metric = 'vae'
+    classes = (4,9)
 else:
     metric = 'simclr'
+    classes = (4,5)
 
 #Load data and subset to two classes
 data,labels = gl.datasets.load(dataset,metric=metric)
