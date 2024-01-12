@@ -7,8 +7,10 @@ import matplotlib.pyplot as plt
 def SBM(N0,N1,r,q):
 
     n = N0+N1
-    W1 = np.random.rand(N0,N0) < r
-    W2 = np.random.rand(N1,N1) < r
+    W1 = np.tril(np.random.rand(N0,N0) < r,k=-1)
+    W1 = W1 + W1.T
+    W2 = np.tril(np.random.rand(N1,N1) < r,k=-1)
+    W2 = W2 + W2.T
     W12 = np.random.rand(N0,N1) < q
     W = np.zeros((n,n))
     W[:N0,:N0] = W1
